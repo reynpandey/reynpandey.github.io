@@ -351,6 +351,50 @@
       text-decoration: underline;
     }
 
+    /* MESSENGER ICON — RIGHT SIDE OF CONTACT DETAILS */
+    .contact-details-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-details p {
+      margin-bottom: 12px;
+    }
+
+    .messenger-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+
+    .messenger-icon svg {
+      display: block;
+      width: 36px;
+      height: 36px;
+    }
+
+    .messenger-icon:hover {
+      transform: scale(1.12);
+    }
+
+    .messenger-icon:focus-visible {
+      outline: 2px solid #0866FF;
+      outline-offset: 4px;
+    }
+
     /* A LITTLE MESSAGE BUTTON */
     .message-button-container {
       text-align: center;
@@ -467,7 +511,8 @@
 
       .birthday-icon,
       .footer-story-icon a,
-      .youtube-icon {
+      .youtube-icon,
+      .messenger-icon {
         transition: none;
       }
     }
@@ -647,27 +692,60 @@
     <h2>Contact</h2>
 
     <div class="contact-box">
-      <p>
-        <strong>Location:</strong>
-        Khaireni, Devdaha, Rupandehi, Nepal
-      </p>
 
-      <p>
-        <strong>Contact:</strong>
-        9860374471
-      </p>
+      <div class="contact-details-row">
 
-      <a
-        href="https://wa.me/9779860374471"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="whatsapp-link">
-        💬 WhatsApp Me
-      </a>
+        <!-- EXISTING CONTACT DETAILS -->
+        <div class="contact-details">
+          <p>
+            <strong>Location:</strong>
+            Khaireni, Devdaha, Rupandehi, Nepal
+          </p>
 
-      <p>
+          <p>
+            <strong>Contact:</strong>
+            9860374471
+          </p>
+
+          <a
+            href="https://wa.me/9779860374471"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-link">
+            💬 WhatsApp Me
+          </a>
+        </div>
+
+        <!-- MESSENGER LOGO: CLICK TO OPEN DIRECT MESSENGER -->
+        <a
+          href="https://m.me/reynpandey123"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="messenger-icon"
+          aria-label="Message Dr. Reyn Pandey on Messenger"
+          title="Message me on Messenger">
+
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+
+            <path
+              fill="#0866FF"
+              d="M12 2C6.35 2 2 6.13 2 11.5c0 2.99 1.37 5.58 3.52 7.35V22l3.22-1.77c1.02.28 2.12.43 3.26.43 5.65 0 10-4.13 10-9.16C22 6.13 17.65 2 12 2Z"/>
+
+            <path
+              fill="#FFFFFF"
+              d="m5.8 14.45 4.7-4.98 2.35 2.1 3.22-1.77 4.95-2.1-4.7 4.98-2.4-2.1-4.9 2.1Z"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <p style="margin-top: 12px;">
         Feel free to connect with me.
       </p>
+
     </div>
 
     <!-- MESSAGE BUTTON -->
