@@ -62,7 +62,10 @@
     /* NAVIGATION */
     nav {
       background: white;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
       padding: 15px 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       position: sticky;
@@ -73,7 +76,7 @@
     nav a {
       color: #0b5d7a;
       text-decoration: none;
-      margin: 0 12px;
+      margin: 0;
       font-weight: bold;
     }
 
@@ -81,14 +84,15 @@
       color: #168aad;
     }
 
-    /* MESSENGER ICON — ONLY ADDITION TO NAVIGATION */
+    /* MESSENGER ICON */
     nav .messenger-nav {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       width: 34px;
       height: 34px;
-      margin: 0 12px;
+      margin: 0;
       vertical-align: middle;
       border-radius: 50%;
       transition: transform 0.2s ease;
@@ -447,9 +451,14 @@
         height: 130px;
       }
 
+      nav {
+        gap: 18px;
+        padding: 12px 8px;
+      }
+
       nav a {
         display: inline-block;
-        margin: 5px 7px;
+        margin: 0;
       }
 
       section {
@@ -491,7 +500,8 @@
 
       .birthday-icon,
       .footer-story-icon a,
-      .youtube-icon {
+      .youtube-icon,
+      nav .messenger-nav {
         transition: none;
       }
     }
