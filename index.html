@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -368,6 +369,28 @@
       margin-top: 50px;
     }
 
+    /* STORY ICON ABOVE COPYRIGHT — RIGHT CORNER */
+    .footer-story-icon {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 900px;
+      margin: 0 auto 8px;
+    }
+
+    .footer-story-icon a {
+      display: inline-block;
+      color: white;
+      font-size: 25px;
+      line-height: 1.4;
+      padding: 4px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-story-icon a:hover {
+      transform: scale(1.12);
+    }
+
     /* MOBILE */
     @media (max-width: 600px) {
       header {
@@ -417,6 +440,10 @@
       .birthday-greeting h3 {
         font-size: 23px;
       }
+
+      .footer-story-icon {
+        max-width: 100%;
+      }
     }
 
     /* ACCESSIBILITY */
@@ -425,7 +452,8 @@
         animation-duration: 12s;
       }
 
-      .birthday-icon {
+      .birthday-icon,
+      .footer-story-icon a {
         transition: none;
       }
     }
@@ -620,7 +648,19 @@
 
   <!-- FOOTER -->
   <footer>
+
+    <!-- CLICKABLE STORY ICON ABOVE COPYRIGHT -->
+    <div class="footer-story-icon">
+      <a
+        href="story.html"
+        aria-label="Read my story"
+        title="Read my story">
+        ✍️📖
+      </a>
+    </div>
+
     <p>© 2026 Dr. Reyn Pandey. All rights reserved.</p>
+
   </footer>
 
   <!-- BIRTHDAY BUTTON FUNCTION -->
