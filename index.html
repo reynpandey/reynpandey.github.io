@@ -298,18 +298,32 @@
       color: #333;
     }
 
-    .video-link {
-      display: inline-block;
-      padding: 10px 18px;
-      background: #0b5d7a;
-      color: white;
+    /* MINIMAL YOUTUBE ICON — RED WITH WHITE PLAY ARROW */
+    .youtube-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 40px;
       text-decoration: none;
       border-radius: 8px;
-      font-weight: bold;
+      transition: transform 0.2s ease;
+      vertical-align: middle;
     }
 
-    .video-link:hover {
-      background: #168aad;
+    .youtube-icon svg {
+      display: block;
+      width: 42px;
+      height: 30px;
+    }
+
+    .youtube-icon:hover {
+      transform: scale(1.12);
+    }
+
+    .youtube-icon:focus-visible {
+      outline: 2px solid #0b5d7a;
+      outline-offset: 4px;
     }
 
     /* INTERESTS */
@@ -452,7 +466,8 @@
       }
 
       .birthday-icon,
-      .footer-story-icon a {
+      .footer-story-icon a,
+      .youtube-icon {
         transition: none;
       }
     }
@@ -567,8 +582,14 @@
         href="https://youtube.com/playlist?list=PLex_yNrgiW90&amp;si=oh0H5mByvPpXGMEp"
         target="_blank"
         rel="noopener noreferrer"
-        class="video-link">
-        YouTube
+        class="youtube-icon"
+        aria-label="Open Dermatology playlist on YouTube"
+        title="Dermatology playlist">
+
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
       </a>
     </div>
 
@@ -580,8 +601,14 @@
         href="https://youtube.com/playlist?list=PLfoFpsFetW0k&amp;si=SB2krHjeQmGtAG_x"
         target="_blank"
         rel="noopener noreferrer"
-        class="video-link">
-        YouTube
+        class="youtube-icon"
+        aria-label="Open Travel playlist on YouTube"
+        title="Travel playlist">
+
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
       </a>
     </div>
 
@@ -593,8 +620,14 @@
         href="https://youtube.com/playlist?list=PLAwp8_Ziqi88&amp;si=x8kYFL6uG1BpKQWi"
         target="_blank"
         rel="noopener noreferrer"
-        class="video-link">
-        YouTube
+        class="youtube-icon"
+        aria-label="Open Piano playlist on YouTube"
+        title="Piano playlist">
+
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
       </a>
     </div>
   </section>
