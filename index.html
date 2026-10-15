@@ -359,6 +359,30 @@
       font-size: 17px;
     }
 
+    /* CAMERA-ONLY SECTION */
+    .camera-section {
+      max-width: 900px;
+      margin: 12px auto;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .camera-icon {
+      display: inline-block;
+      font-size: 23px;
+      line-height: 1.4;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .camera-icon:hover {
+      transform: scale(1.12);
+    }
+
     /* CONTACT */
     .contact-box {
       background: #eef7fa;
@@ -486,6 +510,15 @@
         font-size: 23px;
       }
 
+      .camera-section {
+        margin: 10px auto;
+        padding: 0;
+      }
+
+      .camera-icon {
+        font-size: 23px;
+      }
+
       .footer-story-icon {
         max-width: 100%;
       }
@@ -498,6 +531,7 @@
       }
 
       .birthday-icon,
+      .camera-icon,
       .footer-story-icon a,
       .youtube-icon,
       nav .messenger-nav {
@@ -714,9 +748,15 @@
     <p>💻 Technology &amp; Creativity</p>
   </section>
 
-  <!-- MEMORIES -->
-  <section id="memories">
-    <h2>📷 Memories</h2>
+  <!-- SMALL CAMERA ICON ONLY -->
+  <section id="memories" class="camera-section">
+    <a
+      href="#memories"
+      class="camera-icon"
+      aria-label="Memories"
+      title="Memories">
+      📷
+    </a>
   </section>
 
   <!-- CONTACT -->
