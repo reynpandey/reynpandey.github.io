@@ -239,7 +239,7 @@
       font-family: cursive;
     }
 
-    /* NEW: SMALL BURNING CANDLE */
+    /* BURNING CANDLE */
     .birthday-candle {
       position: relative;
       z-index: 3;
@@ -270,7 +270,7 @@
       border-radius: 2px;
     }
 
-    /* REALISTIC-STYLE FLICKERING FLAME */
+    /* FLICKERING FLAME */
     .candle-flame {
       position: absolute;
       left: 50%;
@@ -293,7 +293,6 @@
       animation: candle-flicker 0.16s ease-in-out infinite alternate;
     }
 
-    /* INNER HOT CORE */
     .candle-flame::after {
       content: "";
       position: absolute;
@@ -306,7 +305,6 @@
       filter: blur(0.4px);
     }
 
-    /* SOFT LIGHT CAST BY THE FLAME */
     .candle-light {
       position: absolute;
       left: 50%;
@@ -326,17 +324,14 @@
         transform: translateX(-50%) rotate(-5deg) scale(1, 0.94);
         opacity: 0.9;
       }
-
       35% {
         transform: translateX(-48%) rotate(3deg) scale(0.94, 1.08);
         opacity: 1;
       }
-
       70% {
         transform: translateX(-53%) rotate(-3deg) scale(1.06, 0.98);
         opacity: 0.94;
       }
-
       100% {
         transform: translateX(-50%) rotate(5deg) scale(0.97, 1.05);
         opacity: 1;
@@ -348,7 +343,6 @@
         opacity: 0.55;
         transform: translateX(-50%) scale(0.9);
       }
-
       to {
         opacity: 1;
         transform: translateX(-50%) scale(1.15);
@@ -445,28 +439,88 @@
       font-size: 17px;
     }
 
-    /* CAMERA — LEFT CORNER ABOVE FOOTER */
-    .camera-section {
-      max-width: 900px;
-      margin: -25px auto 0;
-      padding: 0 28px;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-      text-align: left;
-      line-height: 1.4;
+    /* CHILDHOOD MEMORIES AND CAMERA */
+    .memories-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .memories-text {
+      flex: 1;
+      margin-bottom: 0;
     }
 
     .camera-icon {
-      display: inline-block;
-      font-size: 23px;
-      line-height: 1.4;
+      position: relative;
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      font-size: 30px;
+      line-height: 1;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      border-radius: 50%;
+      animation: camera-float 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* CAMERA FLASH */
+    .camera-icon::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff7b2;
+      box-shadow: 0 0 8px 4px rgba(255, 220, 80, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      animation: camera-flash 3s ease-in-out infinite;
     }
 
     .camera-icon:hover {
+      animation-play-state: paused;
       transform: scale(1.12);
+    }
+
+    .camera-icon:focus-visible {
+      outline: 2px solid #0b5d7a;
+      outline-offset: 4px;
+    }
+
+    @keyframes camera-float {
+      0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(3deg);
+      }
+    }
+
+    @keyframes camera-flash {
+      0%, 72%, 100% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      76% {
+        opacity: 1;
+        transform: scale(1.35);
+      }
+      82% {
+        opacity: 0.25;
+        transform: scale(0.9);
+      }
+      87% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
     }
 
     /* CONTACT */
@@ -614,13 +668,18 @@
         font-size: 23px;
       }
 
-      .camera-section {
-        margin: -15px 12px 0;
-        padding: 0 18px;
+      .memories-row {
+        gap: 10px;
+      }
+
+      .memories-text {
+        font-size: 15px;
       }
 
       .camera-icon {
-        font-size: 23px;
+        width: 42px;
+        height: 42px;
+        font-size: 27px;
       }
 
       .footer-story-icon {
@@ -635,18 +694,18 @@
       }
 
       .birthday-icon,
-      .camera-icon,
       .footer-story-icon a,
       .youtube-icon,
       nav .messenger-nav {
         transition: none;
       }
 
-      .message-button {
+      .message-button,
+      .camera-icon,
+      .camera-icon::after {
         animation: none;
       }
 
-      /* Keep the flame still for reduced-motion preferences */
       .candle-flame,
       .candle-light {
         animation: none;
@@ -757,6 +816,25 @@
       through this platform.
     </p>
 
+    <!-- CHILDHOOD MEMORIES WITH ANIMATED CAMERA -->
+    <div class="memories-row">
+      <p class="memories-text">
+        We all carry a child within us at every stage of life,
+        holding beautiful memories that make every chapter of our
+        journey special.
+      </p>
+
+      <a
+        href="https://youtube.com/playlist?list=PLUj6EtjCgeeM&amp;si=Juzq2doirj3tP9Sz"
+        class="camera-icon"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Watch my memories on YouTube"
+        title="Memories">
+        📷
+      </a>
+    </div>
+
     <!-- EDUCATION, WORK & BIRTHDAY -->
     <div class="profile-links">
       <a href="education.html" class="profile-link">🎓 Education</a>
@@ -784,7 +862,7 @@
       <h3>22nd September</h3>
       <p>With Love ❤️</p>
 
-      <!-- NEW: BURNING CANDLE -->
+      <!-- BURNING CANDLE -->
       <div class="birthday-candle" aria-label="A candle with a flickering flame" role="img">
         <span class="candle-light"></span>
         <span class="candle-flame"></span>
@@ -900,19 +978,6 @@
         A Little Message for You ❤️
       </a>
     </div>
-  </section>
-
-  <!-- CAMERA ICON — LEFT CORNER JUST ABOVE FOOTER -->
-  <section id="memories" class="camera-section">
-    <a
-      href="https://youtube.com/playlist?list=PLUj6EtjCgeeM&amp;si=Juzq2doirj3tP9Sz"
-      class="camera-icon"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Watch my memories on YouTube"
-      title="Memories">
-      📷
-    </a>
   </section>
 
   <!-- FOOTER -->
