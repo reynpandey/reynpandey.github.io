@@ -44,11 +44,7 @@
       padding: 50px 20px;
     }
 
-    /*
-      SLOW ATMOSPHERIC DRIFT
-      Keeps the animated background in place.
-      This overlay is subtle; it does not isolate the original clouds.
-    */
+    /* SLOW ATMOSPHERIC DRIFT */
     header::before {
       content: "";
       position: absolute;
@@ -91,7 +87,6 @@
       }
     }
 
-    /* KEEP HEADER CONTENT ABOVE THE OVERLAY */
     header > * {
       position: relative;
       z-index: 1;
@@ -222,13 +217,13 @@
       margin: 0 auto 12px;
     }
 
-    /* EDUCATION, WORK & BIRTHDAY ROW */
+    /* EDUCATION, WORK & BIRTHDAY — SEPARATE SECTION */
     .profile-links {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 8px;
     }
 
     .profile-link {
@@ -904,8 +899,10 @@
         📷
       </a>
     </div>
+  </section>
 
-    <!-- EDUCATION, WORK & BIRTHDAY -->
+  <!-- SEPARATE EDUCATION, WORK & BIRTHDAY SECTION -->
+  <section id="profile-details">
     <div class="profile-links">
       <a href="education.html" class="profile-link">🎓 Education</a>
       <a href="work.html" class="profile-link">💼 Work</a>
