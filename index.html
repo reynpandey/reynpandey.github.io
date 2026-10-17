@@ -28,7 +28,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER — EXISTING MOUNTAIN BACKGROUND */
+    /* HEADER — ORIGINAL MOUNTAIN BACKGROUND */
     header {
       position: relative;
       isolation: isolate;
@@ -44,30 +44,54 @@
       padding: 50px 20px;
     }
 
-    /* SLOW-MOVING CLOUDS — BEHIND PROFILE PHOTO */
+    /*
+      SLOW ATMOSPHERIC DRIFT
+      Keeps Background.jpg in place.
+      This overlay is subtle; it does not isolate the original clouds.
+    */
     header::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 220'%3E%3Cg fill='%23ffffff' fill-opacity='.42'%3E%3Cellipse cx='100' cy='90' rx='75' ry='20'/%3E%3Cellipse cx='125' cy='78' rx='45' ry='30'/%3E%3Cellipse cx='158' cy='91' rx='58' ry='19'/%3E%3Cellipse cx='370' cy='145' rx='90' ry='22'/%3E%3Cellipse cx='405' cy='130' rx='53' ry='32'/%3E%3Cellipse cx='450' cy='145' rx='65' ry='21'/%3E%3Cellipse cx='610' cy='58' rx='60' ry='17'/%3E%3Cellipse cx='630' cy='47' rx='38' ry='24'/%3E%3C/g%3E%3C/svg%3E");
-      background-repeat: repeat-x;
-      background-size: 700px 220px;
-      background-position: 0 center;
-      animation: profile-cloud-drift 55s linear infinite;
+
+      background-image:
+        radial-gradient(
+          ellipse 18% 7% at 20% 25%,
+          rgba(255,255,255,0.12) 0%,
+          rgba(255,255,255,0.045) 45%,
+          transparent 100%
+        ),
+        radial-gradient(
+          ellipse 22% 8% at 68% 30%,
+          rgba(255,255,255,0.10) 0%,
+          rgba(255,255,255,0.035) 45%,
+          transparent 100%
+        );
+
+      background-repeat: no-repeat;
+      animation: profile-cloud-drift 75s ease-in-out infinite alternate;
     }
 
     @keyframes profile-cloud-drift {
-      from {
-        background-position: 0 center;
+      0% {
+        background-position: 20% 25%, 68% 30%;
+        opacity: 0.45;
       }
-      to {
-        background-position: -700px center;
+
+      50% {
+        background-position: 24% 27%, 64% 32%;
+        opacity: 0.75;
+      }
+
+      100% {
+        background-position: 28% 25%, 60% 29%;
+        opacity: 0.5;
       }
     }
 
-    /* KEEP HEADER CONTENT ABOVE THE CLOUDS */
+    /* KEEP HEADER CONTENT ABOVE THE OVERLAY */
     header > * {
       position: relative;
       z-index: 1;
@@ -926,7 +950,6 @@
   <section id="videos">
     <h2>Videos</h2>
 
-    <!-- DERMATOLOGY -->
     <div class="video-card">
       <h3>🩺 Dermatology</h3>
       <a
@@ -944,7 +967,6 @@
       </a>
     </div>
 
-    <!-- TRAVEL -->
     <div class="video-card">
       <h3>🌏 Travel</h3>
       <a
@@ -962,7 +984,6 @@
       </a>
     </div>
 
-    <!-- PIANO -->
     <div class="video-card">
       <h3>🎹 Piano</h3>
       <a
@@ -1017,7 +1038,6 @@
       <p>Feel free to connect with me.</p>
     </div>
 
-    <!-- ANIMATED MESSAGE BUTTON -->
     <div class="message-button-container">
       <a href="message.html" class="message-button">
         A Little Message for You ❤️
