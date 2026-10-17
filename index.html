@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,70 +27,39 @@
       line-height: 1.6;
     }
 
-    /* HEADER — ORIGINAL MOUNTAIN BACKGROUND */
+    /* ANIMATED VIDEO BACKGROUND — REPLACES Background.jpg */
+    .background-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* SUBTLE BLUE OVERLAY */
+    .background-video-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 93, 122, 0.12);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* HEADER — ANIMATED VIDEO BACKGROUND */
     header {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      background:
-        linear-gradient(
-          rgba(11, 93, 122, 0.15),
-          rgba(22, 138, 173, 0.15)
-        ),
-        url("Background.jpg") center center / cover no-repeat;
+      background: transparent;
       color: white;
       text-align: center;
       padding: 50px 20px;
     }
 
-    /*
-      SLOW ATMOSPHERIC DRIFT
-      Keeps Background.jpg in place.
-      This overlay is subtle; it does not isolate the original clouds.
-    */
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-
-      background-image:
-        radial-gradient(
-          ellipse 18% 7% at 20% 25%,
-          rgba(255,255,255,0.12) 0%,
-          rgba(255,255,255,0.045) 45%,
-          transparent 100%
-        ),
-        radial-gradient(
-          ellipse 22% 8% at 68% 30%,
-          rgba(255,255,255,0.10) 0%,
-          rgba(255,255,255,0.035) 45%,
-          transparent 100%
-        );
-
-      background-repeat: no-repeat;
-      animation: profile-cloud-drift 75s ease-in-out infinite alternate;
-    }
-
-    @keyframes profile-cloud-drift {
-      0% {
-        background-position: 20% 25%, 68% 30%;
-        opacity: 0.45;
-      }
-
-      50% {
-        background-position: 24% 27%, 64% 32%;
-        opacity: 0.75;
-      }
-
-      100% {
-        background-position: 28% 25%, 60% 29%;
-        opacity: 0.5;
-      }
-    }
-
-    /* KEEP HEADER CONTENT ABOVE THE OVERLAY */
+    /* KEEP HEADER CONTENT ABOVE THE VIDEO */
     header > * {
       position: relative;
       z-index: 1;
@@ -755,10 +723,6 @@
 
     /* ACCESSIBILITY */
     @media (prefers-reduced-motion: reduce) {
-      header::before {
-        animation: none;
-      }
-
       .balloon-container span {
         animation: none;
       }
@@ -785,6 +749,22 @@
 </head>
 
 <body>
+
+  <!-- ANIMATED BACKGROUND VIDEO -->
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-hidden="true">
+
+    <source src="Background.jpg.mp4" type="video/mp4">
+  </video>
+
+  <!-- SUBTLE BACKGROUND OVERLAY -->
+  <div class="background-video-overlay"></div>
 
   <!-- PROFILE HEADER -->
   <header>
@@ -1076,6 +1056,14 @@
         "aria-expanded",
         String(isOpening)
       );
+    });
+
+    /* PLAY THE BACKGROUND VIDEO */
+    const backgroundVideo =
+      document.querySelector(".background-video");
+
+    backgroundVideo.play().catch(function () {
+      /* Muted autoplay is normally supported by modern browsers. */
     });
   </script>
 
