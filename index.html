@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,6 +237,122 @@
       color: #168aad;
       font-size: 20px;
       font-family: cursive;
+    }
+
+    /* NEW: SMALL BURNING CANDLE */
+    .birthday-candle {
+      position: relative;
+      z-index: 3;
+      width: 14px;
+      height: 43px;
+      margin: 28px auto 8px;
+      border-radius: 4px 4px 2px 2px;
+      background: repeating-linear-gradient(
+        135deg,
+        #fff4c9 0px,
+        #fff4c9 5px,
+        #f4ce7a 5px,
+        #f4ce7a 8px
+      );
+      box-shadow:
+        inset -3px 0 4px rgba(174, 110, 35, 0.16),
+        0 3px 5px rgba(0, 0, 0, 0.12);
+    }
+
+    /* CANDLE WICK */
+    .candle-wick {
+      position: absolute;
+      top: -5px;
+      left: 6px;
+      width: 2px;
+      height: 7px;
+      background: #554238;
+      border-radius: 2px;
+    }
+
+    /* REALISTIC-STYLE FLICKERING FLAME */
+    .candle-flame {
+      position: absolute;
+      left: 50%;
+      top: -24px;
+      width: 12px;
+      height: 21px;
+      transform: translateX(-50%);
+      transform-origin: 50% 100%;
+      border-radius: 50% 50% 45% 45%;
+      background: linear-gradient(
+        to top,
+        #ff6b00 0%,
+        #ffad24 45%,
+        #fff5b0 85%,
+        #ffffff 100%
+      );
+      box-shadow:
+        0 0 7px 3px rgba(255, 158, 35, 0.55),
+        0 0 17px 7px rgba(255, 177, 59, 0.28);
+      animation: candle-flicker 0.16s ease-in-out infinite alternate;
+    }
+
+    /* INNER HOT CORE */
+    .candle-flame::after {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      left: 4px;
+      width: 4px;
+      height: 11px;
+      border-radius: 50% 50% 45% 45%;
+      background: #fffde2;
+      filter: blur(0.4px);
+    }
+
+    /* SOFT LIGHT CAST BY THE FLAME */
+    .candle-light {
+      position: absolute;
+      left: 50%;
+      top: -23px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 174, 55, 0.24);
+      filter: blur(9px);
+      transform: translateX(-50%);
+      animation: candle-glow 0.8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes candle-flicker {
+      0% {
+        transform: translateX(-50%) rotate(-5deg) scale(1, 0.94);
+        opacity: 0.9;
+      }
+
+      35% {
+        transform: translateX(-48%) rotate(3deg) scale(0.94, 1.08);
+        opacity: 1;
+      }
+
+      70% {
+        transform: translateX(-53%) rotate(-3deg) scale(1.06, 0.98);
+        opacity: 0.94;
+      }
+
+      100% {
+        transform: translateX(-50%) rotate(5deg) scale(0.97, 1.05);
+        opacity: 1;
+      }
+    }
+
+    @keyframes candle-glow {
+      from {
+        opacity: 0.55;
+        transform: translateX(-50%) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.15);
+      }
     }
 
     /* FLOATING BALLOONS */
@@ -528,6 +645,12 @@
       .message-button {
         animation: none;
       }
+
+      /* Keep the flame still for reduced-motion preferences */
+      .candle-flame,
+      .candle-light {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -660,6 +783,13 @@
 
       <h3>22nd September</h3>
       <p>With Love ❤️</p>
+
+      <!-- NEW: BURNING CANDLE -->
+      <div class="birthday-candle" aria-label="A candle with a flickering flame" role="img">
+        <span class="candle-light"></span>
+        <span class="candle-flame"></span>
+        <span class="candle-wick"></span>
+      </div>
 
       <div class="balloon-container" aria-hidden="true">
         <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
