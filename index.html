@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,8 +6,8 @@
 
   <title>Dr. Reyn Pandey | Dermatology Resident Doctor</title>
 
-<meta name="description"
-     content="Dr. Reyn Pandey — Dermatology Resident Doctor from Nepal. Sharing professional interests, travel, technology, music and personal experiences.">
+  <meta name="description"
+        content="Dr. Reyn Pandey — Dermatology Resident Doctor from Nepal. Sharing professional interests, travel, technology, music and personal experiences.">
 
   <style>
     * {
@@ -64,7 +63,7 @@
       font-size: 18px;
     }
 
-    /* BLUE SCALLOPED VERIFICATION-STYLE BADGE */
+    /* VERIFICATION-STYLE BADGE */
     .verified-badge {
       display: inline-flex;
       align-items: center;
@@ -256,80 +255,26 @@
       animation: float-balloon 6s linear infinite;
     }
 
-    .balloon-container span:nth-child(1) {
-      left: 3%;
-      animation-delay: 0s;
-    }
-
-    .balloon-container span:nth-child(2) {
-      left: 12%;
-      animation-delay: 2s;
-    }
-
-    .balloon-container span:nth-child(3) {
-      left: 21%;
-      animation-delay: 4s;
-    }
-
-    .balloon-container span:nth-child(4) {
-      left: 30%;
-      animation-delay: 1s;
-    }
-
-    .balloon-container span:nth-child(5) {
-      left: 39%;
-      animation-delay: 3s;
-    }
-
-    .balloon-container span:nth-child(6) {
-      left: 48%;
-      animation-delay: 0.5s;
-    }
-
-    .balloon-container span:nth-child(7) {
-      left: 57%;
-      animation-delay: 2.5s;
-    }
-
-    .balloon-container span:nth-child(8) {
-      left: 66%;
-      animation-delay: 4.5s;
-    }
-
-    .balloon-container span:nth-child(9) {
-      left: 75%;
-      animation-delay: 1.5s;
-    }
-
-    .balloon-container span:nth-child(10) {
-      left: 84%;
-      animation-delay: 3.5s;
-    }
-
-    .balloon-container span:nth-child(11) {
-      left: 92%;
-      animation-delay: 0.8s;
-    }
-
-    .balloon-container span:nth-child(12) {
-      left: 44%;
-      animation-delay: 5s;
-    }
+    .balloon-container span:nth-child(1) { left: 3%; animation-delay: 0s; }
+    .balloon-container span:nth-child(2) { left: 12%; animation-delay: 2s; }
+    .balloon-container span:nth-child(3) { left: 21%; animation-delay: 4s; }
+    .balloon-container span:nth-child(4) { left: 30%; animation-delay: 1s; }
+    .balloon-container span:nth-child(5) { left: 39%; animation-delay: 3s; }
+    .balloon-container span:nth-child(6) { left: 48%; animation-delay: 0.5s; }
+    .balloon-container span:nth-child(7) { left: 57%; animation-delay: 2.5s; }
+    .balloon-container span:nth-child(8) { left: 66%; animation-delay: 4.5s; }
+    .balloon-container span:nth-child(9) { left: 75%; animation-delay: 1.5s; }
+    .balloon-container span:nth-child(10) { left: 84%; animation-delay: 3.5s; }
+    .balloon-container span:nth-child(11) { left: 92%; animation-delay: 0.8s; }
+    .balloon-container span:nth-child(12) { left: 44%; animation-delay: 5s; }
 
     @keyframes float-balloon {
       0% {
         transform: translateY(0) rotate(-10deg);
         opacity: 0;
       }
-
-      15% {
-        opacity: 1;
-      }
-
-      85% {
-        opacity: 1;
-      }
-
+      15% { opacity: 1; }
+      85% { opacity: 1; }
       100% {
         transform: translateY(-280px) rotate(12deg);
         opacity: 0;
@@ -383,10 +328,10 @@
       font-size: 17px;
     }
 
-    /* CAMERA ICON — YOUTUBE MEMORIES PLAYLIST */
+    /* CAMERA — LEFT CORNER ABOVE FOOTER */
     .camera-section {
       max-width: 900px;
-      margin: -35px auto 12px;
+      margin: -25px auto 0;
       padding: 0 28px;
       background: transparent;
       border-radius: 0;
@@ -426,7 +371,7 @@
       text-decoration: underline;
     }
 
-    /* A LITTLE MESSAGE BUTTON */
+    /* A LITTLE MESSAGE BUTTON — SUBTLE ANIMATION */
     .message-button-container {
       text-align: center;
       margin-top: 22px;
@@ -441,11 +386,24 @@
       border-radius: 25px;
       font-size: 14px;
       font-weight: 500;
+      animation: gentle-message 2.8s ease-in-out infinite;
       transition: background-color 0.3s ease;
     }
 
     .message-button:hover {
       background-color: #105fc5;
+      animation-play-state: paused;
+    }
+
+    @keyframes gentle-message {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.78;
+        transform: scale(1.035);
+      }
     }
 
     /* FOOTER */
@@ -454,7 +412,7 @@
       background: #0b5d7a;
       color: white;
       padding: 25px 15px;
-      margin-top: 50px;
+      margin-top: 35px;
     }
 
     /* STORY ICON ABOVE COPYRIGHT — RIGHT CORNER */
@@ -540,7 +498,7 @@
       }
 
       .camera-section {
-        margin: -20px 12px 10px;
+        margin: -15px 12px 0;
         padding: 0 18px;
       }
 
@@ -556,7 +514,7 @@
     /* ACCESSIBILITY */
     @media (prefers-reduced-motion: reduce) {
       .balloon-container span {
-        animation-duration: 12s;
+        animation: none;
       }
 
       .birthday-icon,
@@ -566,15 +524,17 @@
       nav .messenger-nav {
         transition: none;
       }
+
+      .message-button {
+        animation: none;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
   <!-- PROFILE HEADER -->
-
   <header>
     <img
       src="profile.jpg"
@@ -582,317 +542,237 @@
       class="profile-photo"
     >
 
+    <h1>
+      Dr. Reyn Pandey
 
-<h1>
-  Dr. Reyn Pandey
+      <span
+        class="verified-badge"
+        role="img"
+        aria-label="Personal website badge"
+        title="Personal website badge">
 
-  <!-- PERSONAL WEBSITE VERIFICATION-STYLE BADGE -->
-  <span
-    class="verified-badge"
-    role="img"
-    aria-label="Personal website badge"
-    title="Personal website badge">
+        <svg
+          viewBox="0 0 40 40"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
 
-    <svg
-      viewBox="0 0 40 40"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true">
+          <path
+            fill="#1877F2"
+            d="M20 1.5 L24.2 4.1 L29.1 3.7 L31.3 8.1 L35.6 10.4 L35.1 15.3 L38 20 L35.1 24.7 L35.6 29.6 L31.3 31.9 L29.1 36.3 L24.2 35.9 L20 38.5 L15.8 35.9 L10.9 36.3 L8.7 31.9 L4.4 29.6 L4.9 24.7 L2 20 L4.9 15.3 L4.4 10.4 L8.7 8.1 L10.9 3.7 L15.8 4.1 Z"/>
 
-      <path
-        fill="#1877F2"
-        d="M20 1.5
-           L24.2 4.1
-           L29.1 3.7
-           L31.3 8.1
-           L35.6 10.4
-           L35.1 15.3
-           L38 20
-           L35.1 24.7
-           L35.6 29.6
-           L31.3 31.9
-           L29.1 36.3
-           L24.2 35.9
-           L20 38.5
-           L15.8 35.9
-           L10.9 36.3
-           L8.7 31.9
-           L4.4 29.6
-           L4.9 24.7
-           L2 20
-           L4.9 15.3
-           L4.4 10.4
-           L8.7 8.1
-           L10.9 3.7
-           L15.8 4.1 Z"/>
-
-      <path
-        d="M11.5 20.5 L17.2 26 L28.5 14.5"
-        fill="none"
-        stroke="#FFFFFF"
-        stroke-width="3.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
-    </svg>
-  </span>
-</h1>
-
-
+          <path
+            d="M11.5 20.5 L17.2 26 L28.5 14.5"
+            fill="none"
+            stroke="#FFFFFF"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </h1>
   </header>
 
   <!-- NAVIGATION -->
-
   <nav>
     <a href="#home">Home</a>
     <a href="#interests">Interests</a>
     <a href="#contact">Contact</a>
 
+    <a
+      href="https://m.me/reynpandey123"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="messenger-nav"
+      aria-label="Message me on Facebook Messenger"
+      title="Messenger">
 
-<!-- MESSENGER ICON — LINKS TO YOUR MESSENGER -->
-<a
-  href="https://m.me/reynpandey123"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="messenger-nav"
-  aria-label="Message me on Facebook Messenger"
-  title="Messenger">
+      <svg
+        viewBox="0 0 40 40"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
 
-  <svg
-    viewBox="0 0 40 40"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true">
+        <defs>
+          <linearGradient id="messengerBlue" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00B2FF"/>
+            <stop offset="100%" stop-color="#006AFF"/>
+          </linearGradient>
+        </defs>
 
-    <defs>
-      <linearGradient
-        id="messengerBlue"
-        x1="0"
-        y1="0"
-        x2="1"
-        y2="1">
+        <path
+          fill="url(#messengerBlue)"
+          d="M20 2C9.51 2 2 9.12 2 19.32c0 5.2 2.13 9.69 5.59 12.79.29.26.47.63.48 1.02l.1 3.18a1.4 1.4 0 0 0 1.96 1.24l3.55-1.57c.3-.13.63-.15.95-.07 1.7.47 3.5.71 5.37.71 10.49 0 18-7.12 18-17.32S30.49 2 20 2Z"/>
 
-        <stop offset="0%" stop-color="#00B2FF"/>
-        <stop offset="100%" stop-color="#006AFF"/>
-      </linearGradient>
-    </defs>
-
-    <path
-      fill="url(#messengerBlue)"
-      d="M20 2C9.51 2 2 9.12 2 19.32c0 5.2 2.13 9.69 5.59 12.79.29.26.47.63.48 1.02l.1 3.18a1.4 1.4 0 0 0 1.96 1.24l3.55-1.57c.3-.13.63-.15.95-.07 1.7.47 3.5.71 5.37.71 10.49 0 18-7.12 18-17.32S30.49 2 20 2Z"/>
-
-    <path
-      fill="#FFFFFF"
-      d="M9.9 24.05 15.2 15.6a2.2 2.2 0 0 1 3.18-.59l4.22 3.17a.88.88 0 0 0 1.06-.01l5.7-4.32c.76-.58 1.76.33 1.25 1.14l-5.3 8.45a2.2 2.2 0 0 1-3.18.59l-4.22-3.17a.88.88 0 0 0-1.06.01l-5.7 4.32c-.76.58-1.76-.33-1.25-1.14Z"/>
-  </svg>
-</a>
-
-
+        <path
+          fill="#FFFFFF"
+          d="M9.9 24.05 15.2 15.6a2.2 2.2 0 0 1 3.18-.59l4.22 3.17a.88.88 0 0 0 1.06-.01l5.7-4.32c.76-.58 1.76.33 1.25 1.14l-5.3 8.45a2.2 2.2 0 0 1-3.18.59l-4.22-3.17a.88.88 0 0 0-1.06.01l-5.7 4.32c-.76.58-1.76-.33-1.25-1.14Z"/>
+      </svg>
+    </a>
   </nav>
 
   <!-- HOME / WELCOME -->
-
   <section id="home" class="welcome">
     <h2>Welcome</h2>
 
+    <p>Welcome to my personal profile.</p>
 
-<p>
-  Welcome to my personal profile.
-</p>
-
-<p>
-  I’m Dr. Reyn Pandey, currently pursuing my residency in Dermatology at Tribhuvan University Teaching Hospital (TUTH), Kathmandu.
-</p>
-
-
+    <p>
+      I’m Dr. Reyn Pandey, currently pursuing my residency in Dermatology at Tribhuvan University Teaching Hospital (TUTH), Kathmandu.
+    </p>
   </section>
 
   <!-- ABOUT -->
-
   <section id="about">
     <h2>About Me</h2>
 
+    <p>
+      My interests extend beyond medicine to travel, technology,
+      creativity, and playing piano.
+    </p>
 
-<p>
-  My interests extend beyond medicine to travel, technology,
-  creativity, and playing piano.
-</p>
+    <p>
+      I enjoy learning, exploring new ideas, and sharing experiences
+      through this platform.
+    </p>
 
-<p>
-  I enjoy learning, exploring new ideas, and sharing experiences
-  through this platform.
-</p>
+    <!-- EDUCATION, WORK & BIRTHDAY -->
+    <div class="profile-links">
+      <a href="education.html" class="profile-link">🎓 Education</a>
+      <a href="work.html" class="profile-link">💼 Work</a>
 
-<!-- EDUCATION, WORK & BIRTHDAY -->
-<div class="profile-links">
-  <a href="education.html" class="profile-link">
-    🎓 Education
-  </a>
+      <button
+        type="button"
+        class="birthday-icon"
+        id="birthday-button"
+        aria-label="Show birthday greeting"
+        aria-expanded="false"
+        aria-controls="birthday-greeting"
+        title="Birthday">
+        🎂
+      </button>
+    </div>
 
-  <a href="work.html" class="profile-link">
-    💼 Work
-  </a>
+    <!-- BIRTHDAY GREETING -->
+    <div
+      class="birthday-greeting"
+      id="birthday-greeting"
+      aria-live="polite"
+      hidden>
 
-  <button
-    type="button"
-    class="birthday-icon"
-    id="birthday-button"
-    aria-label="Show birthday greeting"
-    aria-expanded="false"
-    aria-controls="birthday-greeting"
-    title="Birthday">
-    🎂
-  </button>
-</div>
+      <h3>22nd September</h3>
+      <p>With Love ❤️</p>
 
-<!-- BIRTHDAY GREETING WITH ANIMATED BALLOONS -->
-<div
-  class="birthday-greeting"
-  id="birthday-greeting"
-  aria-live="polite"
-  hidden>
-
-  <h3>22nd September</h3>
-  <p>With Love ❤️</p>
-
-  <div class="balloon-container" aria-hidden="true">
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-    <span>🎈</span>
-  </div>
-</div>
-
-
+      <div class="balloon-container" aria-hidden="true">
+        <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+        <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+        <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+      </div>
+    </div>
   </section>
 
   <!-- VIDEOS -->
-
   <section id="videos">
     <h2>Videos</h2>
 
+    <!-- DERMATOLOGY -->
+    <div class="video-card">
+      <h3>🩺 Dermatology</h3>
+      <a
+        href="https://youtube.com/playlist?list=PLex_yNrgiW90&amp;si=oh0H5mByvPpXGMEp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="youtube-icon"
+        aria-label="Open Dermatology playlist on YouTube"
+        title="Dermatology playlist">
 
-<!-- DERMATOLOGY -->
-<div class="video-card">
-  <h3>🩺 Dermatology</h3>
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
+      </a>
+    </div>
 
-  <a
-    href="https://youtube.com/playlist?list=PLex_yNrgiW90&amp;si=oh0H5mByvPpXGMEp"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="youtube-icon"
-    aria-label="Open Dermatology playlist on YouTube"
-    title="Dermatology playlist">
+    <!-- TRAVEL -->
+    <div class="video-card">
+      <h3>🌏 Travel</h3>
+      <a
+        href="https://youtube.com/playlist?list=PLfoFpsFetW0k&amp;si=SB2krHjeQmGtAG_x"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="youtube-icon"
+        aria-label="Open Travel playlist on YouTube"
+        title="Travel playlist">
 
-    <svg viewBox="0 0 100 70" aria-hidden="true">
-      <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
-      <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
-    </svg>
-  </a>
-</div>
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
+      </a>
+    </div>
 
-<!-- TRAVEL -->
-<div class="video-card">
-  <h3>🌏 Travel</h3>
+    <!-- PIANO -->
+    <div class="video-card">
+      <h3>🎹 Piano</h3>
+      <a
+        href="https://youtube.com/playlist?list=PLAwp8_Ziqi88&amp;si=x8kYFL6uG1BpKQWi"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="youtube-icon"
+        aria-label="Open Piano playlist on YouTube"
+        title="Piano playlist">
 
-  <a
-    href="https://youtube.com/playlist?list=PLfoFpsFetW0k&amp;si=SB2krHjeQmGtAG_x"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="youtube-icon"
-    aria-label="Open Travel playlist on YouTube"
-    title="Travel playlist">
-
-    <svg viewBox="0 0 100 70" aria-hidden="true">
-      <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
-      <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
-    </svg>
-  </a>
-</div>
-
-<!-- PIANO -->
-<div class="video-card">
-  <h3>🎹 Piano</h3>
-
-  <a
-    href="https://youtube.com/playlist?list=PLAwp8_Ziqi88&amp;si=x8kYFL6uG1BpKQWi"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="youtube-icon"
-    aria-label="Open Piano playlist on YouTube"
-    title="Piano playlist">
-
-    <svg viewBox="0 0 100 70" aria-hidden="true">
-      <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
-      <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
-    </svg>
-  </a>
-</div>
-
-
+        <svg viewBox="0 0 100 70" aria-hidden="true">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
+      </a>
+    </div>
   </section>
 
   <!-- INTERESTS -->
-
   <section id="interests" class="interests">
     <h2>Interests</h2>
 
-
-<p>🩺 Dermatology &amp; Medical Education</p>
-<p>🎹 Piano &amp; Music</p>
-<p>🌏 Travel &amp; Exploration</p>
-<p>💻 Technology &amp; Creativity</p>
-
-
+    <p>🩺 Dermatology &amp; Medical Education</p>
+    <p>🎹 Piano &amp; Music</p>
+    <p>🌏 Travel &amp; Exploration</p>
+    <p>💻 Technology &amp; Creativity</p>
   </section>
 
   <!-- CONTACT -->
-
   <section id="contact">
     <h2>Contact</h2>
 
+    <div class="contact-box">
+      <p>
+        <strong>Location:</strong>
+        Khaireni, Devdaha, Rupandehi, Nepal 🇳🇵
+      </p>
 
-<div class="contact-box">
-  <p>
-    <strong>Location:</strong>
-    Khaireni, Devdaha, Rupandehi, Nepal 🇳🇵
-  </p>
+      <p>
+        <strong>Contact:</strong>
+        9860374471
+      </p>
 
-  <p>
-    <strong>Contact:</strong>
-    9860374471
-  </p>
+      <a
+        href="https://wa.me/9779860374471"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-link">
+        💬 WhatsApp Me
+      </a>
 
-  <a
-    href="https://wa.me/9779860374471"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="whatsapp-link">
-    💬 WhatsApp Me
-  </a>
+      <p>Feel free to connect with me.</p>
+    </div>
 
-  <p>
-    Feel free to connect with me.
-  </p>
-</div>
-
-<!-- MESSAGE BUTTON -->
-<div class="message-button-container">
-  <a href="message.html" class="message-button">
-    A Little Message for You ❤️
-  </a>
-</div>
-
-
+    <!-- ANIMATED MESSAGE BUTTON -->
+    <div class="message-button-container">
+      <a href="message.html" class="message-button">
+        A Little Message for You ❤️
+      </a>
+    </div>
   </section>
 
-  <!-- CAMERA ICON — BELOW MESSAGE BUTTON, LEFT CORNER -->
-
+  <!-- CAMERA ICON — LEFT CORNER JUST ABOVE FOOTER -->
   <section id="memories" class="camera-section">
     <a
       href="https://youtube.com/playlist?list=PLUj6EtjCgeeM&amp;si=Juzq2doirj3tP9Sz"
@@ -906,27 +786,20 @@
   </section>
 
   <!-- FOOTER -->
-
   <footer>
+    <div class="footer-story-icon">
+      <a
+        href="story.html"
+        aria-label="Read my story"
+        title="Read my story">
+        ✍️📖
+      </a>
+    </div>
 
-
-<!-- CLICKABLE STORY ICON ABOVE COPYRIGHT — RIGHT CORNER -->
-<div class="footer-story-icon">
-  <a
-    href="story.html"
-    aria-label="Read my story"
-    title="Read my story">
-    ✍️📖
-  </a>
-</div>
-
-<p>© 2026 Dr. Reyn Pandey. All rights reserved.</p>
-
-
+    <p>© 2026 Dr. Reyn Pandey. All rights reserved.</p>
   </footer>
 
   <!-- BIRTHDAY BUTTON FUNCTION -->
-
   <script>
     const birthdayButton =
       document.getElementById("birthday-button");
