@@ -28,7 +28,7 @@
       line-height: 1.6;
     }
 
-    /* ANIMATED VIDEO BACKGROUND — REPLACES Background.jpg */
+    /* ANIMATED CLOUD GIF BACKGROUND */
     .background-video {
       position: fixed;
       inset: 0;
@@ -36,7 +36,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
     }
 
@@ -49,7 +49,7 @@
       pointer-events: none;
     }
 
-    /* HEADER — ANIMATED VIDEO BACKGROUND */
+    /* HEADER — ANIMATED BACKGROUND */
     header {
       position: relative;
       isolation: isolate;
@@ -60,7 +60,6 @@
       padding: 50px 20px;
     }
 
-    /* KEEP HEADER CONTENT ABOVE THE VIDEO */
     header > * {
       position: relative;
       z-index: 1;
@@ -751,18 +750,12 @@
 
 <body>
 
-  <!-- ANIMATED BACKGROUND VIDEO -->
-  <video
+  <!-- ANIMATED CLOUD GIF BACKGROUND -->
+  <img
+    src="background_animated.gif"
     class="background-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
+    alt=""
     aria-hidden="true">
-
-    <source src="Background.jpg.mp4" type="video/mp4">
-  </video>
 
   <!-- SUBTLE BACKGROUND OVERLAY -->
   <div class="background-video-overlay"></div>
@@ -1057,16 +1050,6 @@
         "aria-expanded",
         String(isOpening)
       );
-    });
-
-    /* PLAY THE BACKGROUND VIDEO */
-    const backgroundVideo =
-      document.querySelector(".background-video");
-
-    backgroundVideo.muted = true;
-
-    backgroundVideo.play().catch(function () {
-      /* Muted autoplay is normally supported by modern browsers. */
     });
   </script>
 
