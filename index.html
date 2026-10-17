@@ -647,7 +647,7 @@
       margin-top: 35px;
     }
 
-    /* ANIMATED STORY ICON — HAND WRITING IN A BOOK */
+    /* FOOTER STORY ICON — WRITING ON AN OPEN PAGE */
     .footer-story-icon {
       display: flex;
       justify-content: flex-end;
@@ -658,7 +658,7 @@
     .footer-story-icon a {
       display: inline-flex;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       color: white;
       font-size: 25px;
       line-height: 1.4;
@@ -668,45 +668,48 @@
       transition: transform 0.25s ease;
     }
 
-    /* GENTLE BOOK-OPENING MOVEMENT */
+    /* OPEN BOOK — GENTLE PAGE MOVEMENT */
     .footer-story-icon a .story-book {
       display: inline-block;
-      transform-origin: center bottom;
-      animation: story-book-open 3s ease-in-out infinite;
+      transform-origin: left center;
+      animation: story-open-page 3.5s ease-in-out infinite;
     }
 
-    /* SUBTLE WRITING MOVEMENT */
+    /* HAND AND PEN — POINTING TOWARD THE BOOK */
     .footer-story-icon a .story-hand {
       display: inline-block;
       transform-origin: 75% 75%;
-      animation: story-hand-write 1.8s ease-in-out infinite;
+      transform: rotate(-25deg);
+      animation: story-writing 1.5s ease-in-out infinite;
     }
 
-    @keyframes story-book-open {
+    /* THE BOOK REMAINS OPEN WHILE ITS PAGE MOVES GENTLY */
+    @keyframes story-open-page {
       0%, 100% {
-        transform: perspective(100px) rotateY(0deg) scale(1);
+        transform: perspective(100px) rotateY(-5deg) scale(1);
       }
 
       50% {
-        transform: perspective(100px) rotateY(-10deg) scale(1.05);
+        transform: perspective(100px) rotateY(8deg) scale(1.04);
       }
     }
 
-    @keyframes story-hand-write {
+    /* SUBTLE WRITING STROKES */
+    @keyframes story-writing {
       0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) rotate(-25deg);
       }
 
       25% {
-        transform: translate(-1px, 1px) rotate(-8deg);
+        transform: translate(1px, 1px) rotate(-31deg);
       }
 
       50% {
-        transform: translate(1px, -1px) rotate(4deg);
+        transform: translate(2px, -1px) rotate(-22deg);
       }
 
       75% {
-        transform: translate(-1px, 0) rotate(-5deg);
+        transform: translate(1px, 1px) rotate(-29deg);
       }
     }
 
