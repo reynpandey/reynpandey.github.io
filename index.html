@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -603,6 +602,28 @@
       text-decoration: underline;
     }
 
+    /* WAVING NEPAL FLAG IN CONTACT */
+    .contact-flag {
+      display: inline-block;
+      transform-origin: left center;
+      animation: contact-flag-wave 1.6s ease-in-out infinite;
+    }
+
+    @keyframes contact-flag-wave {
+      0%, 100% {
+        transform: perspective(120px) rotateY(0deg) skewY(0deg);
+      }
+      25% {
+        transform: perspective(120px) rotateY(-15deg) skewY(2deg);
+      }
+      50% {
+        transform: perspective(120px) rotateY(8deg) skewY(-2deg);
+      }
+      75% {
+        transform: perspective(120px) rotateY(-10deg) skewY(1deg);
+      }
+    }
+
     /* A LITTLE MESSAGE BUTTON */
     .message-button-container {
       text-align: center;
@@ -916,6 +937,10 @@
       .story-writing-lines path {
         stroke-dashoffset: 0;
       }
+
+      .contact-flag {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -1157,7 +1182,8 @@
     <div class="contact-box">
       <p>
         <strong>Location:</strong>
-        Khaireni, Devdaha, Rupandehi, Nepal 🇳🇵
+        Khaireni, Devdaha, Rupandehi, Nepal
+        <span class="contact-flag" role="img" aria-label="Flag of Nepal">🇳🇵</span>
       </p>
 
       <p>
