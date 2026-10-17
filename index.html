@@ -217,7 +217,7 @@
       margin: 0 auto 12px;
     }
 
-    /* EDUCATION, WORK & BIRTHDAY — SEPARATE SECTION */
+    /* EDUCATION, WORK & BIRTHDAY */
     .profile-links {
       display: flex;
       justify-content: space-evenly;
@@ -647,7 +647,7 @@
       margin-top: 35px;
     }
 
-    /* STORY ICON ABOVE COPYRIGHT */
+    /* ANIMATED STORY ICON — HAND WRITING IN A BOOK */
     .footer-story-icon {
       display: flex;
       justify-content: flex-end;
@@ -656,17 +656,68 @@
     }
 
     .footer-story-icon a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
       color: white;
       font-size: 25px;
       line-height: 1.4;
       padding: 4px;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    /* GENTLE BOOK-OPENING MOVEMENT */
+    .footer-story-icon a .story-book {
+      display: inline-block;
+      transform-origin: center bottom;
+      animation: story-book-open 3s ease-in-out infinite;
+    }
+
+    /* SUBTLE WRITING MOVEMENT */
+    .footer-story-icon a .story-hand {
+      display: inline-block;
+      transform-origin: 75% 75%;
+      animation: story-hand-write 1.8s ease-in-out infinite;
+    }
+
+    @keyframes story-book-open {
+      0%, 100% {
+        transform: perspective(100px) rotateY(0deg) scale(1);
+      }
+
+      50% {
+        transform: perspective(100px) rotateY(-10deg) scale(1.05);
+      }
+    }
+
+    @keyframes story-hand-write {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(-1px, 1px) rotate(-8deg);
+      }
+
+      50% {
+        transform: translate(1px, -1px) rotate(4deg);
+      }
+
+      75% {
+        transform: translate(-1px, 0) rotate(-5deg);
+      }
     }
 
     .footer-story-icon a:hover {
       transform: scale(1.12);
+    }
+
+    .footer-story-icon a:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 4px;
+      border-radius: 4px;
     }
 
     /* MOBILE */
@@ -773,6 +824,11 @@
 
       .cake-icon .candle-flame,
       .cake-icon .candle-light {
+        animation: none;
+      }
+
+      .footer-story-icon a .story-book,
+      .footer-story-icon a .story-hand {
         animation: none;
       }
     }
@@ -1049,7 +1105,8 @@
         href="story.html"
         aria-label="Read my story"
         title="Read my story">
-        ✍️📖
+
+        <span class="story-hand">✍️</span><span class="story-book">📖</span>
       </a>
     </div>
 
