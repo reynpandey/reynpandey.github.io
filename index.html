@@ -305,17 +305,25 @@
       filter: blur(0.4px);
     }
 
+    /* WARM GOLDEN CANDLELIGHT */
     .candle-light {
       position: absolute;
       left: 50%;
-      top: -23px;
-      width: 34px;
-      height: 34px;
+      top: -30px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      background: rgba(255, 174, 55, 0.24);
+      background: radial-gradient(
+        circle,
+        rgba(255, 205, 105, 0.55) 0%,
+        rgba(255, 174, 65, 0.30) 30%,
+        rgba(255, 139, 35, 0.14) 55%,
+        transparent 75%
+      );
       filter: blur(9px);
       transform: translateX(-50%);
-      animation: candle-glow 0.8s ease-in-out infinite alternate;
+      transform-origin: center;
+      animation: candle-glow 1.1s ease-in-out infinite alternate;
       pointer-events: none;
     }
 
@@ -338,14 +346,30 @@
       }
     }
 
+    /* NATURAL CANDLELIGHT PULSATION */
     @keyframes candle-glow {
-      from {
+      0% {
         opacity: 0.55;
-        transform: translateX(-50%) scale(0.9);
+        transform: translateX(-50%) scale(0.82);
+        filter: blur(8px);
       }
-      to {
+
+      30% {
+        opacity: 0.95;
+        transform: translateX(-50%) scale(1.12);
+        filter: blur(11px);
+      }
+
+      60% {
+        opacity: 0.70;
+        transform: translateX(-50%) scale(0.94);
+        filter: blur(7px);
+      }
+
+      100% {
         opacity: 1;
-        transform: translateX(-50%) scale(1.15);
+        transform: translateX(-50%) scale(1.18);
+        filter: blur(12px);
       }
     }
 
