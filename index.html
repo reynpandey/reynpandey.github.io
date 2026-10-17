@@ -647,7 +647,7 @@
       margin-top: 35px;
     }
 
-    /* FOOTER STORY ICON — WRITING ON AN OPEN PAGE */
+    /* ANIMATED SVG — HAND WRITING IN AN OPEN BOOK */
     .footer-story-icon {
       display: flex;
       justify-content: flex-end;
@@ -658,58 +658,93 @@
     .footer-story-icon a {
       display: inline-flex;
       align-items: center;
-      gap: 2px;
+      justify-content: center;
+      width: 100px;
+      height: 72px;
+      padding: 3px;
       color: white;
-      font-size: 25px;
-      line-height: 1.4;
-      padding: 4px;
       text-decoration: none;
-      transform-origin: center;
+      border-radius: 8px;
       transition: transform 0.25s ease;
     }
 
-    /* OPEN BOOK — GENTLE PAGE MOVEMENT */
-    .footer-story-icon a .story-book {
-      display: inline-block;
+    .story-svg {
+      display: block;
+      width: 94px;
+      height: 66px;
+      overflow: visible;
+    }
+
+    /* OPEN BOOK PAGE */
+    .story-book-page {
+      transform-box: fill-box;
       transform-origin: left center;
-      animation: story-open-page 3.5s ease-in-out infinite;
+      animation: story-page-open 3s ease-in-out infinite;
     }
 
-    /* HAND AND PEN — POINTING TOWARD THE BOOK */
-    .footer-story-icon a .story-hand {
-      display: inline-block;
-      transform-origin: 75% 75%;
-      transform: rotate(-25deg);
-      animation: story-writing 1.5s ease-in-out infinite;
+    /* BOOK WRITING LINES */
+    .story-book-lines {
+      stroke-dasharray: 20;
+      animation: story-write-lines 3s ease-in-out infinite;
     }
 
-    /* THE BOOK REMAINS OPEN WHILE ITS PAGE MOVES GENTLY */
-    @keyframes story-open-page {
+    /* HAND AND PEN MOVEMENT */
+    .story-writing-hand {
+      transform-box: view-box;
+      transform-origin: 83px 28px;
+      animation: story-hand-writing 1.2s ease-in-out infinite;
+    }
+
+    /* PEN TIP */
+    .story-pen-tip {
+      animation: story-pen-contact 1.2s ease-in-out infinite;
+    }
+
+    @keyframes story-hand-writing {
       0%, 100% {
-        transform: perspective(100px) rotateY(-5deg) scale(1);
-      }
-
-      50% {
-        transform: perspective(100px) rotateY(8deg) scale(1.04);
-      }
-    }
-
-    /* SUBTLE WRITING STROKES */
-    @keyframes story-writing {
-      0%, 100% {
-        transform: translate(0, 0) rotate(-25deg);
+        transform: translate(3px, -1px) rotate(-2deg);
       }
 
       25% {
-        transform: translate(1px, 1px) rotate(-31deg);
+        transform: translate(-2px, 3px) rotate(3deg);
       }
 
       50% {
-        transform: translate(2px, -1px) rotate(-22deg);
+        transform: translate(-7px, 1px) rotate(-3deg);
       }
 
       75% {
-        transform: translate(1px, 1px) rotate(-29deg);
+        transform: translate(-3px, 4px) rotate(2deg);
+      }
+    }
+
+    @keyframes story-pen-contact {
+      0%, 100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes story-page-open {
+      0%, 100% {
+        transform: perspective(120px) rotateY(0deg);
+      }
+
+      50% {
+        transform: perspective(120px) rotateY(-12deg);
+      }
+    }
+
+    @keyframes story-write-lines {
+      0%, 15% {
+        stroke-dashoffset: 20;
+      }
+
+      70%, 100% {
+        stroke-dashoffset: 0;
       }
     }
 
@@ -720,7 +755,6 @@
     .footer-story-icon a:focus-visible {
       outline: 2px solid white;
       outline-offset: 4px;
-      border-radius: 4px;
     }
 
     /* MOBILE */
@@ -830,8 +864,10 @@
         animation: none;
       }
 
-      .footer-story-icon a .story-book,
-      .footer-story-icon a .story-hand {
+      .story-book-page,
+      .story-book-lines,
+      .story-writing-hand,
+      .story-pen-tip {
         animation: none;
       }
     }
@@ -1109,7 +1145,114 @@
         aria-label="Read my story"
         title="Read my story">
 
-        <span class="story-hand">✍️</span><span class="story-book">📖</span>
+        <svg
+          class="story-svg"
+          viewBox="0 0 120 80"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+
+          <!-- OPEN BOOK -->
+          <g
+            fill="none"
+            stroke="white"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <!-- LEFT PAGE -->
+            <path
+              d="M12 34 Q29 27 51 37 L51 67 Q30 57 12 64 Z"
+              fill="#ffffff"
+              fill-opacity="0.12"/>
+
+            <!-- RIGHT PAGE -->
+            <path
+              class="story-book-page"
+              d="M51 37 Q74 27 104 34 L104 64 Q76 57 51 67 Z"
+              fill="#ffffff"
+              fill-opacity="0.16"/>
+
+            <!-- BOOK SPINE -->
+            <path d="M51 37 L51 67"/>
+
+            <!-- LEFT PAGE WRITING -->
+            <g
+              class="story-book-lines"
+              stroke="#bde9ff"
+              stroke-width="1.5">
+
+              <path d="M20 42 Q32 39 43 45"/>
+              <path d="M20 49 Q32 46 43 52"/>
+              <path d="M20 56 Q32 53 43 59"/>
+            </g>
+
+            <!-- RIGHT PAGE WRITING -->
+            <g
+              fill="none"
+              stroke="#bde9ff"
+              stroke-width="1.5">
+
+              <path d="M60 44 Q76 38 95 41"/>
+              <path d="M60 51 Q76 45 95 48"/>
+              <path d="M60 58 Q76 52 95 55"/>
+            </g>
+
+            <!-- LOWER BOOK EDGE -->
+            <path d="M12 64 Q32 58 51 67 Q78 57 104 64"/>
+          </g>
+
+          <!-- ANIMATED WRITING HAND AND PEN -->
+          <g class="story-writing-hand">
+
+            <!-- PEN -->
+            <g
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2.8"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path d="M87 12 L66 39"/>
+              <path d="M83 9 L91 15"/>
+              <path d="M66 39 L63 43 L70 40"/>
+            </g>
+
+            <!-- GOLDEN PEN TIP -->
+            <path
+              class="story-pen-tip"
+              d="M63 43 L66 39 L70 40 Z"
+              fill="#ffd166"
+              stroke="#ffffff"
+              stroke-width="0.8"/>
+
+            <!-- HAND -->
+            <path
+              d="M83 22
+                 Q79 20 77 24
+                 L72 30
+                 Q69 32 72 35
+                 L77 38
+                 Q80 40 83 36
+                 L88 30
+                 Q91 26 87 24
+                 Z"
+              fill="#f2c6a0"
+              stroke="#ffffff"
+              stroke-width="1.6"
+              stroke-linejoin="round"/>
+
+            <!-- FINGERS -->
+            <path
+              d="M77 30 L81 33
+                 M80 27 L84 30
+                 M74 33 L78 36"
+              fill="none"
+              stroke="#9a6547"
+              stroke-width="1.2"
+              stroke-linecap="round"/>
+
+          </g>
+        </svg>
       </a>
     </div>
 
