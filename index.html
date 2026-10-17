@@ -682,48 +682,75 @@
       animation: story-page-open 3s ease-in-out infinite;
     }
 
-    /* BOOK WRITING LINES */
+    /* LEFT PAGE WRITING */
     .story-book-lines {
       stroke-dasharray: 20;
       animation: story-write-lines 3s ease-in-out infinite;
     }
 
-    /* HAND AND PEN MOVEMENT */
+    /* RIGHT PAGE: WRITE EACH LINE GRADUALLY */
+    .story-writing-lines path {
+      fill: none;
+      stroke: #bde9ff;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-dasharray: 42;
+      stroke-dashoffset: 42;
+      animation: story-write-as-you-go 2.4s ease-in-out infinite;
+    }
+
+    .story-writing-lines path:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .story-writing-lines path:nth-child(2) {
+      animation-delay: 0.45s;
+    }
+
+    .story-writing-lines path:nth-child(3) {
+      animation-delay: 0.9s;
+    }
+
+    /* HAND AND PEN MOVE ALONG THE PAGE */
     .story-writing-hand {
       transform-box: view-box;
       transform-origin: 83px 28px;
-      animation: story-hand-writing 1.2s ease-in-out infinite;
+      animation: story-hand-writing 2.4s ease-in-out infinite;
     }
 
-    /* PEN TIP */
+    /* PEN TIP GLOWS WHEN WRITING */
     .story-pen-tip {
-      animation: story-pen-contact 1.2s ease-in-out infinite;
+      animation: story-pen-contact 2.4s ease-in-out infinite;
     }
 
     @keyframes story-hand-writing {
       0%, 100% {
-        transform: translate(3px, -1px) rotate(-2deg);
+        transform: translate(0, 0) rotate(0deg);
       }
 
-      25% {
-        transform: translate(-2px, 3px) rotate(3deg);
+      20% {
+        transform: translate(3px, -1px) rotate(-1deg);
       }
 
-      50% {
-        transform: translate(-7px, 1px) rotate(-3deg);
+      40% {
+        transform: translate(7px, 0) rotate(1deg);
       }
 
-      75% {
-        transform: translate(-3px, 4px) rotate(2deg);
+      60% {
+        transform: translate(10px, 1px) rotate(-1deg);
+      }
+
+      80% {
+        transform: translate(5px, 0) rotate(1deg);
       }
     }
 
     @keyframes story-pen-contact {
       0%, 100% {
-        opacity: 0.6;
+        opacity: 0.7;
       }
 
-      50% {
+      20%, 60% {
         opacity: 1;
       }
     }
@@ -745,6 +772,20 @@
 
       70%, 100% {
         stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes story-write-as-you-go {
+      0%, 5% {
+        stroke-dashoffset: 42;
+      }
+
+      65%, 85% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 42;
       }
     }
 
@@ -867,8 +908,13 @@
       .story-book-page,
       .story-book-lines,
       .story-writing-hand,
-      .story-pen-tip {
+      .story-pen-tip,
+      .story-writing-lines path {
         animation: none;
+      }
+
+      .story-writing-lines path {
+        stroke-dashoffset: 0;
       }
     }
   </style>
@@ -1186,12 +1232,8 @@
               <path d="M20 56 Q32 53 43 59"/>
             </g>
 
-            <!-- RIGHT PAGE WRITING -->
-            <g
-              fill="none"
-              stroke="#bde9ff"
-              stroke-width="1.5">
-
+            <!-- RIGHT PAGE: WRITING APPEARS LINE BY LINE -->
+            <g class="story-writing-lines">
               <path d="M60 44 Q76 38 95 41"/>
               <path d="M60 51 Q76 45 95 48"/>
               <path d="M60 58 Q76 52 95 55"/>
@@ -1225,7 +1267,7 @@
               stroke="#ffffff"
               stroke-width="0.8"/>
 
-            <!-- HAND -->
+            <!-- HAND HOLDING PEN -->
             <path
               d="M83 22
                  Q79 20 77 24
