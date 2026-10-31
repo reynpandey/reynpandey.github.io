@@ -212,6 +212,68 @@
       margin: 0 auto 12px;
     }
 
+    /* PHOTO GALLERY */
+    .photo-gallery {
+      max-width: 900px;
+    }
+
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .photo-gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f5f8fb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .photo-gallery-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* SEE MORE PHOTOS ON YOUTUBE */
+    .photo-gallery-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 22px;
+      color: #0b5d7a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .photo-gallery-link:hover {
+      color: #168aad;
+      text-decoration: underline;
+    }
+
+    .photo-gallery-link .youtube-icon {
+      width: 42px;
+      height: 34px;
+    }
+
+    .photo-gallery-link .youtube-icon svg {
+      width: 38px;
+      height: 28px;
+    }
+
+    .photo-gallery-link:focus-visible {
+      outline: 2px solid #0b5d7a;
+      outline-offset: 4px;
+    }
+
     /* EDUCATION, WORK & BIRTHDAY */
     .profile-links {
       display: flex;
@@ -705,11 +767,6 @@
       animation: story-write-lines 3s ease-in-out infinite;
     }
 
-    /*
-      RIGHT PAGE WRITING:
-      All three lines use one shared timeline.
-      This keeps the writing synchronized with the pen.
-    */
     .story-writing-lines path {
       fill: none;
       stroke: #bde9ff;
@@ -739,70 +796,47 @@
       will-change: transform;
     }
 
-    /* PEN TIP CONTACT */
     .story-pen-tip {
       animation: story-pen-contact 6.6s linear infinite;
     }
 
-    /*
-      The pen tip starts at the beginning of each line,
-      moves to the end, then moves down to the next line.
-    */
     @keyframes story-hand-writing {
-      /* First line: start */
       0%, 4% {
         transform: translate(-3px, 1px);
       }
-
-      /* First line: write toward the right */
       16% {
         transform: translate(32px, -2px);
       }
-
-      /* Move pen to the beginning of line two */
       20% {
         transform: translate(-3px, 8px);
       }
-
-      /* Second line: write toward the right */
       36% {
         transform: translate(32px, 5px);
       }
-
-      /* Move pen to the beginning of line three */
       40% {
         transform: translate(-3px, 15px);
       }
-
-      /* Third line: write toward the right */
       56% {
         transform: translate(32px, 12px);
       }
-
-      /* Lift the pen and return to the starting position */
       62% {
         transform: translate(24px, 0);
       }
-
       68%, 99% {
         transform: translate(-3px, 1px);
       }
-
       100% {
         transform: translate(-3px, 1px);
       }
     }
 
-    /* PEN TIP GLOWS DURING WRITING */
     @keyframes story-pen-contact {
       0%, 3%, 17%, 19%, 37%, 39%, 57% {
         opacity: 1;
       }
-
       4%, 16%, 20%, 36%, 40%, 56% {
         opacity: 0.75;
       }
-
       60%, 100% {
         opacity: 0.45;
       }
@@ -812,7 +846,6 @@
       0%, 100% {
         transform: perspective(120px) rotateY(0deg);
       }
-
       50% {
         transform: perspective(120px) rotateY(-12deg);
       }
@@ -822,52 +855,42 @@
       0%, 15% {
         stroke-dashoffset: 20;
       }
-
       70%, 100% {
         stroke-dashoffset: 0;
       }
     }
 
-    /* FIRST LINE APPEARS WHILE THE PEN CROSSES IT */
     @keyframes story-write-line-one {
       0%, 4% {
         stroke-dashoffset: 42;
       }
-
       16%, 99% {
         stroke-dashoffset: 0;
       }
-
       100% {
         stroke-dashoffset: 42;
       }
     }
 
-    /* SECOND LINE APPEARS WHILE THE PEN CROSSES IT */
     @keyframes story-write-line-two {
       0%, 20% {
         stroke-dashoffset: 42;
       }
-
       36%, 99% {
         stroke-dashoffset: 0;
       }
-
       100% {
         stroke-dashoffset: 42;
       }
     }
 
-    /* THIRD LINE APPEARS WHILE THE PEN CROSSES IT */
     @keyframes story-write-line-three {
       0%, 40% {
         stroke-dashoffset: 42;
       }
-
       56%, 99% {
         stroke-dashoffset: 0;
       }
-
       100% {
         stroke-dashoffset: 42;
       }
@@ -959,6 +982,12 @@
       .footer-story-icon {
         max-width: 100%;
       }
+
+      /* TWO COLUMNS ON MOBILE */
+      .photo-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
     }
 
     /* ACCESSIBILITY */
@@ -1003,6 +1032,10 @@
 
       .contact-flag {
         animation: none;
+      }
+
+      .photo-gallery-item img {
+        transition: none;
       }
     }
   </style>
@@ -1094,6 +1127,83 @@
     <p>
       I’m Dr. Reyn Pandey, currently pursuing my residency in Dermatology at Tribhuvan University Teaching Hospital (TUTH), Kathmandu.
     </p>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section id="photos" class="photo-gallery">
+    <h2>Photo Gallery</h2>
+
+    <div class="photo-gallery-grid">
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-1.jpg"
+          alt="Portrait in a formal outfit"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-2.jpg"
+          alt="At Sinuwa Lodge with Himalayan scenery"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-3.jpg"
+          alt="At Nepalgunj Medical College"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-4.jpg"
+          alt="Visit to Lumbini"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-5.jpg"
+          alt="At Mardi Himal Base Camp"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-6.jpg"
+          alt="Enjoying a Himalayan mountain view"
+          loading="lazy">
+      </div>
+
+      <div class="photo-gallery-item">
+        <img
+          src="photos/gallery-7.jpg"
+          alt="A forest-side travel memory with a dog"
+          loading="lazy">
+      </div>
+
+    </div>
+
+    <!-- YOUTUBE LINK -->
+    <a
+      href="https://youtube.com/@drreynpandey?si=NDxiGgRram_IuAYg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="photo-gallery-link"
+      aria-label="See more photos on YouTube"
+      title="See More Photos on YouTube">
+
+      <span class="youtube-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 70">
+          <rect x="7" y="12" width="86" height="46" rx="13" fill="#FF0000"/>
+          <path d="M43 25 L43 45 L62 35 Z" fill="#FFFFFF"/>
+        </svg>
+      </span>
+
+      <span>See More Photos on YouTube</span>
+    </a>
   </section>
 
   <!-- ABOUT -->
@@ -1321,7 +1431,7 @@
               <path d="M20 56 Q32 53 43 59"/>
             </g>
 
-            <!-- RIGHT PAGE: WRITING APPEARS WITH THE PEN -->
+            <!-- RIGHT PAGE WRITING -->
             <g class="story-writing-lines">
               <path d="M60 44 Q76 38 95 41"/>
               <path d="M60 51 Q76 45 95 48"/>
